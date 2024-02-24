@@ -17,7 +17,7 @@ public class Professor implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String name;
 	private String email;
 	private String phone;
@@ -26,6 +26,19 @@ public class Professor implements Serializable{
 	public Professor() {
 		
 	}
+
+	
+	
+	public Professor(Integer id, String name, String email, String phone, Date birthday) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.birthday = birthday;
+	}
+
+
 
 	public String getName() {
 		return name;
@@ -59,7 +72,7 @@ public class Professor implements Serializable{
 		this.birthday = birthday;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 

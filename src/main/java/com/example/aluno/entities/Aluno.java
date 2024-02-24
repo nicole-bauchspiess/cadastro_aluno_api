@@ -17,7 +17,7 @@ public class Aluno implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String name;
 	private String email;
 	private String phone;
@@ -28,7 +28,7 @@ public class Aluno implements Serializable{
 		
 	}
 
-	public Aluno(Long id, String name, String email, String phone, Date birthday) {
+	public Aluno(Integer id, String name, String email, String phone, Date birthday) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -69,7 +69,7 @@ public class Aluno implements Serializable{
 		this.birthday = birthday;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
