@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Aluno implements Serializable{
@@ -24,17 +26,23 @@ public class Aluno implements Serializable{
 	private Date birthday;
 	private String belt; 
 	
+	
+	@ManyToOne
+	@JoinColumn(name = "professor_id")
+	private Professor professor;
+	
 	public Aluno() {
 		
 	}
 
-	public Aluno(Integer id, String name, String email, String phone, Date birthday) {
+	public Aluno(Integer id, String name, String email, String phone, Date birthday, String belt) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.birthday = birthday;
+		this.belt = belt;
 	}
 
 	public String getName() {
@@ -43,6 +51,12 @@ public class Aluno implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getBelt() {
+		return belt;
+	}
+	public void setBelt(String belt) {
+		this.belt = belt;
 	}
 
 	public String getEmail() {
