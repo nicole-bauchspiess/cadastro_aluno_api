@@ -32,7 +32,7 @@ public class Professor implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "professor")
-	private List<Aluno> alunos = new ArrayList<>();
+	private List<Turma> turmas = new ArrayList<>();
 	
 	public Professor() {
 		

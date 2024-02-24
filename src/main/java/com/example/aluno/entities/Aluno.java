@@ -22,29 +22,43 @@ public class Aluno implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	private String cpf; 
 	private String name;
 	private String email;
 	private String phone;
 	private LocalDate birthday;
 	private String belt; 
-	
+	private Endereco endereco;
 	
 	@ManyToOne
 	@JoinColumn(name = "professor_id")
 	private Professor professor;
 	
+	
 	public Aluno() {
 		
 	}
 
-	public Aluno(Integer id, String name, String email, String phone, LocalDate birthday, String belt) {
+	public Aluno(Integer id, String cpf, String name, String email, String phone, LocalDate birthday, String belt, Professor professor) {
 		super();
 		this.id = id;
+		this.cpf = cpf;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.birthday = birthday;
 		this.belt = belt;
+		
+	}
+	
+	
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getName() {

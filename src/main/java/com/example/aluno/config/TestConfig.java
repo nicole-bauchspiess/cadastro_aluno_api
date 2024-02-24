@@ -27,10 +27,15 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Aluno a1 = new Aluno(null, "Nicole", "nicoleb3007@gmail.com", "47 988210696", LocalDate.parse("2003-07-30"), "black");
-		alunoRepository.saveAll(Arrays.asList(a1));
 		Professor p1 = new Professor(null, "Vanderlei", "vanderlei@gmail.com", "47 988210774", LocalDate.parse("1969-09-09"));
-		professorRepository.saveAll(Arrays.asList(p1));
+		Professor p2 = new Professor(null, "Julia", "julia@gmail.com", "47 12345678", LocalDate.parse("1998-03-18"));
+		
+		Aluno a1 = new Aluno(null, "Nicole", "05897594937","nicoleb3007@gmail.com", "47 988210696", LocalDate.parse("2003-07-30"), "black", p1);
+		Aluno a2 = new Aluno(null, "Lucas", "05224597937","lucas@gmail.com", "47 988210562", LocalDate.parse("2000-06-10"), "black",p2);
+		alunoRepository.saveAll(Arrays.asList(a1,a2));
+		
+		
+		professorRepository.saveAll(Arrays.asList(p1,p2));
 		
 	}
 
