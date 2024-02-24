@@ -1,8 +1,8 @@
 package com.example.aluno.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,8 +13,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "tb-professor")
 public class Professor implements Serializable{
 
 
@@ -26,7 +28,7 @@ public class Professor implements Serializable{
 	private String name;
 	private String email;
 	private String phone;
-	private Date birthday;
+	private LocalDate birthday;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "professor")
@@ -35,10 +37,8 @@ public class Professor implements Serializable{
 	public Professor() {
 		
 	}
-
 	
-	
-	public Professor(Integer id, String name, String email, String phone, Date birthday) {
+	public Professor(Integer id, String name, String email, String phone, LocalDate birthday) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -73,11 +73,11 @@ public class Professor implements Serializable{
 		this.phone = phone;
 	}
 
-	public Date getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 

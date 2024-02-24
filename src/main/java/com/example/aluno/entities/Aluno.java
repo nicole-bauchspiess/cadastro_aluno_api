@@ -1,7 +1,7 @@
 package com.example.aluno.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -10,8 +10,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name ="tb-aluno")
 public class Aluno implements Serializable{
 
 
@@ -23,7 +25,7 @@ public class Aluno implements Serializable{
 	private String name;
 	private String email;
 	private String phone;
-	private Date birthday;
+	private LocalDate birthday;
 	private String belt; 
 	
 	
@@ -35,7 +37,7 @@ public class Aluno implements Serializable{
 		
 	}
 
-	public Aluno(Integer id, String name, String email, String phone, Date birthday, String belt) {
+	public Aluno(Integer id, String name, String email, String phone, LocalDate birthday, String belt) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -75,11 +77,11 @@ public class Aluno implements Serializable{
 		this.phone = phone;
 	}
 
-	public Date getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 
