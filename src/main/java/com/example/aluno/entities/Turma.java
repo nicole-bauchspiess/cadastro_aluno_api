@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -29,7 +30,7 @@ public class Turma implements Serializable{
 	@JoinColumn(name = "professor-id")
 	private Professor professor;
 
-	
+	@ManyToMany(mappedBy = "turmas")
 	private List<Aluno> alunos = new ArrayList<>();
 	
 	public Turma(Integer id, String dayAtWeek, String hour, Professor professor) {
@@ -40,9 +41,17 @@ public class Turma implements Serializable{
 		this.professor = professor;
 	}
 	
+	
 	public Integer getId() {
 		return id;
 	}
+	
+	
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+
 	public Professor getProfessor() {
 		return professor;
 	}

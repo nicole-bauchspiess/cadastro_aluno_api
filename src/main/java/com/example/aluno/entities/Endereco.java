@@ -25,11 +25,10 @@ private static final long serialVersionUID = 1L;
 	private String bairro;
 	private String cep;
 	
+	
 	public Endereco() {
 		
 	}
-	
-	
 	
 	public Endereco(Integer id, String rua, String numero, String complemento, String bairro, String cep) {
 		super();

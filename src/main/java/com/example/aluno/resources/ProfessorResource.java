@@ -13,7 +13,7 @@ import com.example.aluno.entities.Professor;
 import com.example.aluno.services.ProfessorService;
 
 @RestController
-@RequestMapping(value = "/professores")
+@RequestMapping(value ="/professores")
 public class ProfessorResource {
 
 	@Autowired
@@ -28,8 +28,5 @@ public class ProfessorResource {
 	public ResponseEntity<Professor> findById(@PathVariable Integer id){
 		return ResponseEntity.ok().body(service.findById(id));
 	}
-	
-	
-	
 	
 }

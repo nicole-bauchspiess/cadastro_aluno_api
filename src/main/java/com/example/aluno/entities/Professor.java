@@ -34,6 +34,8 @@ public class Professor implements Serializable{
 	@OneToMany(mappedBy = "professor")
 	private List<Turma> turmas = new ArrayList<>();
 	
+
+	
 	public Professor() {
 		
 	}

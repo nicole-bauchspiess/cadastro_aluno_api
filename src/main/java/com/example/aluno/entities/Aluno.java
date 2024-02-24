@@ -2,6 +2,8 @@ package com.example.aluno.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -9,7 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,13 +31,13 @@ public class Aluno implements Serializable{
 	private String phone;
 	private LocalDate birthday;
 	private String belt; 
-	private Endereco endereco;
+
+	@ManyToMany
+	@JoinTable(name = "tb-turma-aluno", joinColumns = @JoinColumn(name= "aluno-id"), 
+	inverseJoinColumns = @JoinColumn(name = "turma-id"))
+	private List<Turma> turmas = new ArrayList<>();
 	
-	@ManyToOne
-	@JoinColumn(name = "professor_id")
-	private Professor professor;
-	
-	
+
 	public Aluno() {
 		
 	}
@@ -52,6 +55,10 @@ public class Aluno implements Serializable{
 	}
 	
 	
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
 
 	public String getCpf() {
 		return cpf;
