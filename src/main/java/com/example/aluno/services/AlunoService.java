@@ -23,4 +23,20 @@ public class AlunoService {
 		Optional<Aluno> obj = alunoRepository.findById(id);
 		return obj.get();
 	}
+	
+	public Aluno update(Integer id, Aluno obj) {
+		Aluno a = alunoRepository.getReferenceById(id);
+		updateData(a, obj);
+		return alunoRepository.save(obj);
+		
+	}
+	
+	public void updateData(Aluno a, Aluno obj) {
+		a.setName(obj.getName());
+		a.setCpf(obj.getCpf());
+		a.setBirthday(obj.getBirthday());
+		a.setEmail(obj.getEmail());
+		a.setPhone(obj.getPhone());
+	}
+	
 }

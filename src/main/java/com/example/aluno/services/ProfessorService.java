@@ -23,4 +23,20 @@ public class ProfessorService {
 		Optional<Professor> obj = professorRepository.findById(id);
 		return obj.get();
 	}
+	
+	public Professor update(Integer id, Professor obj) {
+		Professor p = professorRepository.getReferenceById(id);
+		updateData(p, obj);
+		return professorRepository.save(obj);
+		
+	}
+	
+	public void updateData(Professor p, Professor obj) {
+		p.setName(obj.getName());
+		p.setCpf(obj.getCpf());
+		p.setBirthday(obj.getBirthday());
+		p.setEmail(obj.getEmail());
+		p.setPhone(obj.getPhone());
+	}
+	
 }
