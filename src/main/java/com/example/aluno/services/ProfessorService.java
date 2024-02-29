@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.aluno.entities.Professor;
 import com.example.aluno.repositories.ProfessorRepository;
+import com.example.aluno.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProfessorService {
@@ -21,7 +22,7 @@ public class ProfessorService {
 	
 	public Professor findById(Integer id) {
 		Optional<Professor> obj = professorRepository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
 	public Professor update(Integer id, Professor obj) {

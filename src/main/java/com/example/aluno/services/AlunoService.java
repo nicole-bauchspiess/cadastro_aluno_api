@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.aluno.entities.Aluno;
 import com.example.aluno.repositories.AlunoRepository;
+import com.example.aluno.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class AlunoService {
@@ -21,8 +22,10 @@ public class AlunoService {
 	
 	public Aluno findById(Integer id) {
 		Optional<Aluno> obj = alunoRepository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
+	
+
 	
 	public Aluno update(Integer id, Aluno obj) {
 		Aluno a = alunoRepository.getReferenceById(id);
