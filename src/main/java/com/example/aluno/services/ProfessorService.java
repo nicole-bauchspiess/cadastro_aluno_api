@@ -40,4 +40,8 @@ public class ProfessorService {
 		p.setPhone(obj.getPhone());
 	}
 	
+	public Professor insert(Professor obj) {
+		return professorRepository.save(obj);
+	}
+	
 }

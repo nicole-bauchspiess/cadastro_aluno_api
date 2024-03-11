@@ -42,4 +42,8 @@ public class AlunoService {
 		a.setPhone(obj.getPhone());
 	}
 	
+	public Aluno insert(Aluno obj) {
+		return alunoRepository.save(obj);
+	}
+	
 }
