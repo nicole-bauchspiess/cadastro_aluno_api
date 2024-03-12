@@ -87,6 +87,9 @@ public class Turma implements Serializable{
 	}
 	
 	
-	
+	public void addAluno(Aluno aluno) {
+		this.alunos.add(aluno);
+		aluno.getTurmas().add(this);
+	}
 	
 }

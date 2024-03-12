@@ -46,5 +46,13 @@ public class Aluno extends Pessoa implements Serializable{
 		this.setBirthday(birthday);
 	}
 
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void addTurma(Turma turma) {
+		this.turmas.add(turma);
+		turma.getAlunos().add(this);
+	}
 	
 }
