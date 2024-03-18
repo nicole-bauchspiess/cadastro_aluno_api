@@ -15,8 +15,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.aluno.entities.Aluno;
 import com.example.aluno.services.AlunoService;
 
-import jakarta.servlet.Servlet;
-
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -51,4 +49,9 @@ public class AlunoResource {
 		return ResponseEntity.created(uri).body(aluno);
 	}
 	
+	@GetMapping(value = "/{namePart}")
+	public ResponseEntity<List<Aluno>> findByName(@PathVariable String namePart){
+		List<Aluno> list = service.findByName(namePart);
+		return ResponseEntity.ok().body(list);
+	}
 }

@@ -46,4 +46,8 @@ public class AlunoService {
 		return alunoRepository.save(obj);
 	}
 	
+	public List<Aluno> findByName(String namePart){
+		return alunoRepository.findByNameContainingIgnoreCase(namePart);
+	}
+	
 }
